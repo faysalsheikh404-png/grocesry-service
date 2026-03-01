@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshCart - Premium Grocery Delivery</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-leaf"></i> FreshCart
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#products">Shop</a></li>
+        </ul>
+        <div class="nav-actions">
+            <div class="cart-btn" id="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="badge">100% Organic Products</span>
+            <h1>Fresh Groceries <br>Delivered to Your Door</h1>
+            <p>Shop from a wide variety of fresh, organic, and locally sourced groceries. Get them delivered in minutes.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#categories" class="btn btn-secondary">Explore Categories</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800" alt="Fresh Groceries Layout">
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories-section">
+        <div class="section-header">
+            <h2>Shop by Category</h2>
+            <p>Find what you need quickly from our fresh departments</p>
+        </div>
+        <div class="categories-grid" id="categories-grid">
+            <!-- Categories injected by JS -->
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="section-header">
+            <h2>Our Products</h2>
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="All">All</button>
+                <button class="filter-btn" data-filter="Vegetables">Vegetables</button>
+                <button class="filter-btn" data-filter="Fruits">Fruits</button>
+                <button class="filter-btn" data-filter="Dairy">Dairy</button>
+                <button class="filter-btn" data-filter="Meat">Meat</button>
+                <button class="filter-btn" data-filter="Bakery">Bakery</button>
+            </div>
+        </div>
+        <div class="products-grid" id="products-grid">
+            <!-- Products injected by JS -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><i class="fa-solid fa-leaf"></i> FreshCart</div>
+                <p>Bringing the freshest organic food directly from farms to your doorstep.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#products">Shop</a>
+                <a href="#">About Us</a>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-envelope"></i> hello@freshcart.com</p>
+                <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FreshCart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar (Modal) -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" id="close-cart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items injected by JS -->
+            <div class="empty-cart-msg">Your cart is empty.</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <button class="btn btn-primary checkout-btn" id="open-checkout">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-overlay"></div>
+    <div class="modal" id="checkout-modal">
+        <div class="modal-header">
+            <h2>Home Delivery Details</h2>
+            <button class="close-modal" id="close-checkout"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form class="checkout-form" id="checkout-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" required placeholder="+1 (555) 000-0000">
+            </div>
+            <div class="form-group">
+                <label for="address">Delivery Address</label>
+                <textarea id="address" rows="3" required placeholder="123 Fresh Street, Apt 4B..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Payment Method</label>
+                <div class="payment-options">
+                    <label class="radio-label">
+                        <input type="radio" name="payment" value="cod" checked> Cash on Delivery
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="payment" value="card"> Credit Card
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary place-order-btn">Place Order - <span id="checkout-total">$0.00</span></button>
+        </form>
+    </div>
+
+    <!-- Order Success Message -->
+    <div class="toast-message" id="toast-message">
+        <i class="fa-solid fa-circle-check"></i> <span id="toast-text">Item added to cart!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
